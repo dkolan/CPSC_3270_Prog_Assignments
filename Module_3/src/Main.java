@@ -4,18 +4,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 class CollectData {
-
-    static double ComputeSumPowersFunction(double a, double x, int n) {
-        double sum = 0;
-        double prod = 1;
-        for (int i = 1; i <= n; i++) {
-            sum += prod;
-            prod *= x;
-        }
-        return a * sum;
-    }
-
-    private static void CollectData(String[] args) {
+    private static void CollectData() {
         try {
             FileWriter fw = new FileWriter("data.csv");
             fw.append("n,T(n)/n*sqrt(n),T(n)/n**2,T(n)/nlog(n)\n");
@@ -89,8 +78,7 @@ class CollectData {
     }
 
     public static int log2(int N) {
-        int result = (int)(Math.log(N) / Math.log(2));
-        return result;
+        return (int)(Math.log(N) / Math.log(2));
     }
 
     public static String cowSay(String message) {
@@ -101,7 +89,7 @@ class CollectData {
         String topTextBox = topTextBoxChar.repeat(textBoxMultiplier);
         String bottomTextBox = bottomTextBoxChar.repeat(textBoxMultiplier);
 
-        String out = topTextBox + "\n"
+        return topTextBox + "\n"
             + "< " + message + " >\n"
             + bottomTextBox + "\n"
             + "        \\   ^__^\n"
@@ -109,12 +97,11 @@ class CollectData {
             + "            (__)\\       )\\/\\\n"
             + "                ||----w |\n"
             + "                ||     ||\n";
-        return out;
     }
 
     public static void main(String[] args) {
         System.out.println("Running CollectData...");
-        CollectData(args);
+        CollectData();
         System.out.println(cowSay("CollectData finished!"));
     }
 }
