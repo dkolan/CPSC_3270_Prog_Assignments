@@ -11,7 +11,7 @@ class CollectData {
 
             // Create Array G of a huge length, filled with random values, perfect opportunity for streams/anon functions
             // I tested G.length of MAX_INT, 1 billion, and 500 million. First two ran out of heap space
-            int[]  G = IntStream.generate(() -> new Random().nextInt(Integer.MAX_VALUE)).limit(250000).toArray();
+            int[]  G = IntStream.generate(() -> new Random().nextInt(Integer.MAX_VALUE)).limit(250000 + 1).toArray();
 
             int[] A = new int[G.length];
 
@@ -56,10 +56,10 @@ class CollectData {
         int n2 = r - q;
         int[] L = new int[n1 + 1];
         int[] R = new int[n2 + 1];
-        for (int i = 0; i < n1; i++) {
+        for (int i = 1; i <= n1; i++) {
             L[i] = A[p + i];
         }
-        for (int j = 0; j < n2; j++) {
+        for (int j = 1; j <= n2; j++) {
             R[j] = A[q + j + 1];
         }
         L[n1] = Integer.MAX_VALUE;
